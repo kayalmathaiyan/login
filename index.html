@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Assignment Of Two Numbers</title>
+<style>
+body{
+ background-image: url("maths.png");
+ width: 98%;
+ height: 90%;
+}
+ .box
+    {
+      width:400px;
+      height:470px;
+      border:10px solid;
+      background-color:  #9BB7D4;
+      margin: 40px 65px;
+      border-radius:25px ;
+    }
+    .box2
+    {
+      width:550px;
+      height:560px;
+      border:10px solid;
+      margin: 30px 315px;
+      border-radius:25px ;
+      background-color:  #E15D44;
+    }
+    .line
+    {
+        margin-left: 10px;
+    }
+    .inner
+    {
+        margin-left: 10px;
+        padding: 6px 6px;
+    }
+    .button
+    {
+        margin-top:10px;
+        margin-left: 10px;
+        padding: 3px 3px;
+    }
+    .ans
+    {
+        margin-left: 10px;
+    }
+    .sub
+    {
+     margin-left: 160px;
+     margin-top: 15px;
+     padding: 6px 6px;
+     border-radius: 10px;
+    }
+    .ans
+    {
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    .sele
+    {
+        margin-left: 15px;
+        margin-top: 15px;
+        padding: 5px 5px;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+     
+<div class="box2">
+<div class="box">
+
+
+
+<p class="line">Enter First Value: </p><input class="inner" type="Number" id="firstNumber" /><br>
+<p class="line">Enter Second Value: </p><input class="inner" type="Number" id="secondNumber" /><br>
+
+  <label class="ans" for="cars" value="cars" id="rel">Choose Calculation Method:</label>
+<br>
+ <input type="radio" id="addition" name="cal" value="addition">
+  <label >addtion</label><br>
+
+  <input type="radio" id="subration" name="cal" value="subration">
+  <label >subration</label><br>
+
+  <input type="radio" id="multiple" name="cal" value="multiple">
+  <label >multiple</label><br>
+
+  <input type="radio" id="divied" name="cal" value="divied">
+  <label >divied</label><br>
+ 
+<button class="sub" onClick="return radio()">submit</button>
+<p id="ans"></p>
+</div>
+</div>
+<script>
+ function radio() {
+    var num1 = document.getElementById("firstNumber").value;
+    var num2 = document.getElementById("secondNumber").value;  
+
+    var opration = document.getElementsByName('cal');
+    var arith_type ="";
+    for(var i = 0; i < opration.length; i++){
+        if(opration[i].checked){
+            arith_type = opration[i].value;
+            break;
+        }
+    }
+    if(num1 == ""){
+        alert("Enter First Number");
+        document.getElementById("firstNumber").focus();
+        return false;
+    }else if(num2 == ""){
+        alert("Enter second number");
+        document.getElementById("secondNumber").focus();
+        return false;
+    }else if(arith_type == ""){
+        alert("Please select arithmetic type");
+    }else{
+        console.log(arith_type);
+       if(arith_type == "addition")
+        {
+            var sum = parseInt(num1) + parseInt(num2);
+            document.getElementById("ans").innerText = "addition value is:"+sum;
+        }
+        else if(arith_type=="subration")
+        {
+            var sum = num1 - num2;
+            document.getElementById("ans").innerText = "addition value is:"+sum;
+        }
+        else if(arith_type=="multiple")
+        {
+            var sum = num1 * num2;
+            document.getElementById("ans").innerText = "addition value is:"+sum;
+        }
+        else
+        {
+            var sum = num1 / num2;
+            document.getElementById("ans").innerText = "addition value is:"+sum;
+        }
+    }
+    return false;
+}
+
+</script>
+</body>
+</html>
